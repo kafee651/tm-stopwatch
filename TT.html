@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>TM Stopwatch</title>
+        <style type="text/css">
+            div{
+                text-align: center;
+                position: fixed; /* or absolute */
+                top: 0%;
+                left: 0%;
+                width:100%;
+                height:100%;
+            }
+            button {
+                background-color: #c0d6db; /* Green */
+                border: none;
+                color: white;
+                padding: 15px 32px;
+                text-align: center;
+                text-decoration: none;
+                display: inline-block;
+                font-size: 16px;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+            
+        </style>
+    </head>
+    <body>
+        <div id = "full">
+        <h1 style=font-size:1300% id = "timefield"><time>00:00:00</time></h1>
+        <button id = "start" onclick="myStart()"">start</button>
+        <button id = "stop" onclick="myStop()"">stop</button>
+        <button id = "clear" onclick="myClear()"">clear</button>
+        </div>
+
+        <script>
+            seconds = 0; minutes = 0; hours = 0;countSec = 0;
+            lower = 60;
+            mid = 90;
+            high = 120;
+            t;
+            function myClear() {
+                seconds = 0; minutes = 0; hours = 0;
+                clearTimeout(t);
+                document.getElementById("timefield").innerHTML = "00:00:00";
+                document. getElementById("start").disabled = false;
+            }
+            function myStart() {
+                document. getElementById("start").disabled = true;
+                t = setTimeout(add, 1000);
+            }
+            function myStop() {
+                clearTimeout(t);
+                document. getElementById("start").disabled = false;
+            }
+            function add() {
+                seconds++;
+                countSec++;
+                if (seconds >= 60) {
+                    seconds = 0;
+                    minutes++;
+                    if (minutes >= 60) {
+                        minutes = 0;
+                        hours++;
+                    }
+                }
+                document.getElementById("timefield").innerHTML =  (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
+                if(countSec < lower){
+
+                }
+                else if(countSec < mid){
+                    document.getElementById("full").style.backgroundColor = "darkgreen"; 
+                    document.getElementById("start").style.backgroundColor = "green"; 
+                    document.getElementById("stop").style.backgroundColor = "green";
+                    document.getElementById("clear").style.backgroundColor = "green";  
+                } else if(countSec  < high){
+                    document.getElementById("full").style.backgroundColor = "khaki";
+                    document.getElementById("start").style.backgroundColor = "palegoldenrod"; 
+                    document.getElementById("stop").style.backgroundColor = "palegoldenrod";
+                    document.getElementById("clear").style.backgroundColor = "palegoldenrod";  
+                } else {
+                    document.getElementById("full").style.backgroundColor = "crimson";
+                    document.getElementById("start").style.backgroundColor = "lightcoral"; 
+                    document.getElementById("stop").style.backgroundColor = "lightcoral";
+                    document.getElementById("clear").style.backgroundColor = "lightcoral";   
+                }
+                myStart();
+            }
+        </script>
+    </body>
+</html>
