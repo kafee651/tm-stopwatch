@@ -1,2 +1,2 @@
 # tm-stopwatch
-This app will be used by ToastMaster cloud to clock time of the speehes
+This app will be used by ToastMaster club to clock time of the speehes
