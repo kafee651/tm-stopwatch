@@ -45,6 +45,10 @@
                 clearTimeout(t);
                 document.getElementById("timefield").innerHTML = "00:00:00";
                 document. getElementById("start").disabled = false;
+                document.getElementById("full").style.backgroundColor = "white"; 
+                document.getElementById("start").style.backgroundColor = "gray"; 
+                document.getElementById("stop").style.backgroundColor = "gray";
+                document.getElementById("clear").style.backgroundColor = "gray";                  
             }
             function myStart() {
                 document. getElementById("start").disabled = true;
@@ -67,7 +71,10 @@
                 }
                 document.getElementById("timefield").innerHTML =  (hours ? (hours > 9 ? hours : "0" + hours) : "00") + ":" + (minutes ? (minutes > 9 ? minutes : "0" + minutes) : "00") + ":" + (seconds > 9 ? seconds : "0" + seconds);
                 if(countSec < lower){
-
+                    document.getElementById("full").style.backgroundColor = "white"; 
+                    document.getElementById("start").style.backgroundColor = "gray"; 
+                    document.getElementById("stop").style.backgroundColor = "gray";
+                    document.getElementById("clear").style.backgroundColor = "gray";  
                 }
                 else if(countSec < mid){
                     document.getElementById("full").style.backgroundColor = "darkgreen"; 
