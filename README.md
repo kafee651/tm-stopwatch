@@ -5,7 +5,7 @@ This app will be used by Toastmaster club to clock time of the speeches<br />
 Step1:Clone/Copy the repository in your local system.<br />
 Step2:Open index.html file in your browser.<br />
 Step3:You can navigate to the respective page by click the buttons available in the page.<br />
- <br />
+ <br />![alt text](https://github.com/kafee651/tm-stopwatch)
 Step4:At the time of meeting share your browser screen with all the participant.<br />
 Step5:There are three button available to take note of time in each category.<br />
  <br />
